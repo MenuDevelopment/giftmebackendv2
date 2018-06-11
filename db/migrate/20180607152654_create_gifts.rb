@@ -1,6 +1,7 @@
 class CreateGifts < ActiveRecord::Migration[5.1]
   def change
     create_table :gifts do |t|
+      t.references :user, foreign_key: true
       t.string :item_name
       t.string :item_link
       t.string :item_description
