@@ -1,2 +1,2 @@
-class GiftsController < ApplicationController
+class Api::V2::GiftsController < ApplicationController
 end
