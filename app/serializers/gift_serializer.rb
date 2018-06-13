@@ -1,5 +1,5 @@
 class GiftSerializer < ActiveModel::Serializer
-  attributes :id, :item_name, :item_link, :item_description, :item_price, :end_date, :pledge_amount
+  attributes :id, :item_name, :item_link, :item_description, :item_price, :end_date, :user_id, :pledge_amount
 
   def pledge_amount
     sum = 0.0
