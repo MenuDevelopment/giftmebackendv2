@@ -27,6 +27,10 @@ class ApplicationController < ActionController::API
     decoded
   end
 
+  def valid_token?
+    !!try_decode_token
+  end
+
   def current_user_id
     decoded = try_decode_token
     unless decoded && decoded[0] && decoded[0]["user_id"]
@@ -36,7 +40,5 @@ class ApplicationController < ActionController::API
     decoded[0]["user_id"]
   end
 
-  def valid_token?
-    !!try_decode_token
-  end
+
 end
