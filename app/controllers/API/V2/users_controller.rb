@@ -2,8 +2,7 @@ class Api::V2::UsersController < ApplicationController
 
 
   def create
-    byebug
-    user = User.create(user_params)
+    user = User.new(user_params)
 
     if (user.save)
       render json: token_json(user)
@@ -11,6 +10,15 @@ class Api::V2::UsersController < ApplicationController
       render json: {
         errors:@user.errors.full_messages
       }, status: :unprocesseable_entity
+    end
+  end
+
+  def show
+    user = User.find(params[:id])
+    if ( current_user_id == user.id )
+      render json: user
+    else
+      render json: {error: "you are not this user"}
     end
   end
 
