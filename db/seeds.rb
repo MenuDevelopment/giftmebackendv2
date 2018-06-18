@@ -42,7 +42,7 @@ end
     }))
   end
 
-  10.times do
+  20.times do
   Pledge.create({
     user: users.sample,
     gift: gifts.sample,
