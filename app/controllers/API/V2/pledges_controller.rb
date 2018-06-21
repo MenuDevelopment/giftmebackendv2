@@ -1,6 +1,6 @@
 class Api::V2::PledgesController < ApplicationController
   def create
-    @pledge = Pledge.new(pledge_params)
+    @pledge = Pledge.find_or_create_by(pledge_params)
     if @pledge.save
       render json: @pledge
     else
